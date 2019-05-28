@@ -1,0 +1,85 @@
+import java.util.Scanner;
+import java.lang.String;
+public class calender 
+{
+	public static void main(String args[])
+	{
+		Scanner s = new Scanner(System.in);
+		String jan="JAN",feb="FEB",mar="MAR",apr="APR",may="MAY",jun="JUN",jul="JUL",aug="AUG",sep="SEP",oct="OCT",nov="NOV",dec="DEC";
+		System.out.print("Enter the date --> ");
+		int date=s.nextInt();
+		System.out.print("Enter the month --> ");
+		String month=s.next();
+		System.out.print("Enter the year --> ");
+		int year=s.nextInt();
+		int final_year = year % 100;
+		int month_code=0,count_leap=0,total;
+		switch(month)
+		{
+			case "JAN" :
+			case "OCT" :
+						month_code=1;
+						break;
+			case "FEB" :
+			case "NOV" :
+			case "MAR" :
+						month_code=4;
+						break;
+			case "APR" :
+						month_code=0;
+						break;
+			case "MAY" :
+						month_code=2;
+						break;
+			case "JUN" :
+						month_code=5;
+						break;
+			case "JUL" :
+						month_code=0;
+						break;
+			case "AUG" :
+						month_code=3;
+						break;
+			case "SEP" :
+						month_code=6;
+						break;
+			case "DEC" :
+						month_code=6;
+						break;
+			default : 
+					System.out.print("Enter in valid month --> ");
+		}
+		
+		
+		for(int i= 2000; i<=year; i++)
+		{
+			if(i%4==0 && i%100!=0 || i%400==0 && i%100==0)
+					count_leap ++;
+				
+		}
+		
+		total = date + month_code + final_year + count_leap;
+		int find_day = total % 7;
+		switch(find_day)
+		{
+		case 0 :
+				System.out.print("Day is Thursday --> "); break;
+		case 1 :
+				System.out.print("Day is Friday --> "); break;
+		case 2 :
+				System.out.print("Day is Saturday --> "); break;
+		case 3 :
+				System.out.print("Day is Sunday --> "); break;
+		case 4 :
+				System.out.print("Day is Monday --> "); break;
+		case 5 :
+				System.out.print("Day is Tuesday --> "); break;
+		case 6 :
+				System.out.print("Day is Wednesday --> "); break;
+		
+		}
+			
+		
+		
+	}
+}
